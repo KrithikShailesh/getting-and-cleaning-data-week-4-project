@@ -39,7 +39,7 @@ library(plyr)
         test <- cbind(test_y,test_sub,test_x)
         dataset <- rbind(train,test)
         
-# 7 extracting specific measurements like mean and sd
+# 7 extracting specific values like mean and sd
         
         colName <- colnames(dataset)
         
@@ -55,6 +55,6 @@ library(plyr)
         tidyData <- aggregate(. ~subjectID + activityID,setofMean_Sd ,mean)
         tidyData <- tidyData[order(tidyData$subjectID,tidyData$activityID),]
         
-        #writing data into a txt file
+        # 9.1 writing data into a txt file
         
         write.table(tidyData,"tidyData.txt",row.name = FALSE)
